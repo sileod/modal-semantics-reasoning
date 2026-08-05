@@ -1,0 +1,53 @@
+{
+  "benchmark": "paper-v2",
+  "counts": {
+    "by_axis": {
+      "domain": 400,
+      "frame": 400
+    },
+    "by_contrast": {
+      "B/S5": 80,
+      "K/D": 80,
+      "K/T": 80,
+      "T/B": 80,
+      "T/S4": 80,
+      "cumulative/constant": 132,
+      "varying/cumulative": 134,
+      "varying/decreasing": 134
+    },
+    "by_mode": {
+      "nli": 400,
+      "validity": 400
+    },
+    "by_premise_status": {
+      "ablation_unresolved": 5,
+      "conjecture_only": 400,
+      "premise_dependent": 395
+    },
+    "pairs": 800,
+    "rejected": 15,
+    "sides": 1600
+  },
+  "generation_seed": 20260716,
+  "generator_command": "make paper-v2-freeze",
+  "git_commit": "f09c03af762eb239dfd62cf5bced1462b0061faf",
+  "git_dirty_before_generation": false,
+  "oracle_resolution_counts": {
+    "dual_agreement": 727,
+    "one_prover_only": 873
+  },
+  "platform": "Linux-6.1.0-49-amd64-x86_64-with-glibc2.36",
+  "python": "3.12.10",
+  "sha256": {
+    "oracle.jsonl": "1f393da26af2c9d8f78aede1cf1291932695c784f3e5dc723899ceaa2eea969c",
+    "pairs.jsonl": "294ef44358c20f62ccfef256d8b20feb9664af9de785fac1e1793b7011e59061",
+    "paper_v2.yaml": "ac7b703e52772293e93aeac444d2ce05920770919ce592503912959fac87a1de",
+    "prompts.jsonl": "c70dff85837b9ba1decd92f9d6d8da09207f2d2f49ad97da3562e556a0fb158d"
+  },
+  "tools": {
+    "leo3": "Leo-III 1.6",
+    "let": "embedproblem 1.9.2",
+    "vampire": "Vampire 5.0.1 (Release build, commit 1b13eaf on 2026-01-18 12:14:50 +0000)"
+  },
+  "version": "scaled-0.2"
+}

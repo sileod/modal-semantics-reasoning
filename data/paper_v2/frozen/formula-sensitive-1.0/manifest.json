@@ -1,0 +1,38 @@
+{
+  "benchmark": "paper-v2-formula-sensitive",
+  "by_axis": {
+    "domain": 80,
+    "frame": 80
+  },
+  "by_mode": {
+    "nli": 80,
+    "validity": 80
+  },
+  "by_orientation": {
+    "B": 40,
+    "S4": 40,
+    "cumulative": 40,
+    "decreasing": 40
+  },
+  "git_commit": "aee317235a2f396feaa78b1f69581787e33cd1bd",
+  "git_dirty": false,
+  "oracle_resolutions": {
+    "dual_agreement": 135,
+    "explicit_countermodel": 160,
+    "one_prover_only": 25
+  },
+  "pairs": 160,
+  "pairs_per_family_mode": 20,
+  "python": "3.12.9",
+  "rejected": 0,
+  "selection": "lowest SHA-256(pair_id) per source-contrast/mode cell",
+  "sha256": {
+    "oracle.jsonl": "c1c44ea2c5b5ce6693cc966bb8b311dec1743ba257c08bf138af6b1320ddc483",
+    "pairs.jsonl": "54d85ca922c38fe99dac4f8a6dacef2c75baa4aa707922a03077863e202ae54b",
+    "prompts.jsonl": "e3e751ce9611d7919ce56da3c510f67de685ff952556609d6d556b4d28c83149",
+    "rejected.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "source": "data/paper_v2/frozen/scaled-0.2/pairs.jsonl",
+  "source_sha256": "294ef44358c20f62ccfef256d8b20feb9664af9de785fac1e1793b7011e59061",
+  "version": "1.0"
+}

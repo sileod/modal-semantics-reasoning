@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "modal-semantics-reasoning"
+version = "1.0.0"
+description = "Contrastive evaluation of language models under modal semantics"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "gramforge>=1.0.9",
+    "litlm>=0.3.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+include = ["paper_v2*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+

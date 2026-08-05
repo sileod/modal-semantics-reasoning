@@ -1,0 +1,63 @@
+benchmark:
+  name: paper-v2
+  version: "2.0"
+  seed: 20260716
+  target_pairs_per_axis: 400
+  primary_surface: controlled_english
+
+premises:
+  semantics: local
+  minimum_count: 0
+  maximum_count: 4
+
+axes:
+  frame:
+    contrasts:
+      - [K, D]
+      - [K, T]
+      - [T, B]
+      - [T, S4]
+      - [B, S5]
+
+  domain:
+    fixed_system: D
+    contrasts:
+      - [varying, cumulative]
+      - [varying, decreasing]
+      - [cumulative, constant]
+    excluded_contrasts:
+      - contrast: [decreasing, constant]
+        reason: invalid side unresolved by the current oracle portfolio
+
+  designation:
+    enabled: false
+    exclusion_reason: flexible side unresolved by the current oracle portfolio
+    fixed_system: D
+    fixed_domain: constant
+    fixed_term_interpretation: local
+    contrasts:
+      - [rigid, flexible]
+
+oracle:
+  timeout_seconds: 30
+  require_opposite_labels: true
+  reject_conflicts: true
+
+pilot:
+  version: "0.2"
+  modes: [validity, nli]
+  pairs_per_contrast_and_mode: 1
+  oracle_timeout_seconds: 10
+  accept_clean_one_prover_resolutions: true
+
+final:
+  version: "scaled-0.2"
+  target_pairs:
+    frame: 400
+    domain: 400
+  modes: [validity, nli]
+  grammar_pool_per_cell: 300
+  oracle_timeout_seconds: 10
+  workers: 8
+  oracle_cache_version: "v1"
+  accept_clean_one_prover_resolutions: true

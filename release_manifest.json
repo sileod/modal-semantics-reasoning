@@ -1,0 +1,316 @@
+{
+  "files": [
+    {
+      "bytes": 327,
+      "path": ".github/workflows/tests.yml",
+      "sha256": "f71ff54abd705b50a6674bb301a9f004dba448c18cfb8c25a685adb9a90db230"
+    },
+    {
+      "bytes": 69,
+      "path": ".gitignore",
+      "sha256": "689ed42a8a467d6c8eca4be1571775733e8d5fb0e0bc3937a1721ae3bc7da3de"
+    },
+    {
+      "bytes": 490,
+      "path": "CITATION.cff",
+      "sha256": "aa1656506c6dbd60e572029267dedebd5a075efd2af92c60f57f5e612f8683c9"
+    },
+    {
+      "bytes": 86,
+      "path": "Makefile",
+      "sha256": "ee13024b67a74fbb2c286ce558787a63ea7921b11c95905d385a4f480ee8ec86"
+    },
+    {
+      "bytes": 2189,
+      "path": "README.md",
+      "sha256": "c4d68925927d3e20a1fc17c1ed4e033856d53745c15154269bbfd98b31936324"
+    },
+    {
+      "bytes": 5072,
+      "path": "configs/models.yaml",
+      "sha256": "966725cfcd7281d12c5877526e33d733cd4a26400f415df123bb25638d136a1a"
+    },
+    {
+      "bytes": 1310,
+      "path": "configs/paper_v2.yaml",
+      "sha256": "ac7b703e52772293e93aeac444d2ce05920770919ce592503912959fac87a1de"
+    },
+    {
+      "bytes": 1149,
+      "path": "data/paper_v2/frozen/formula-sensitive-1.0/manifest.json",
+      "sha256": "0d406339a11a016b78a6d6f40d239fbc3b301069f4f7b51685e5535543bb7c6e"
+    },
+    {
+      "bytes": 826794,
+      "path": "data/paper_v2/frozen/formula-sensitive-1.0/oracle.jsonl",
+      "sha256": "c1c44ea2c5b5ce6693cc966bb8b311dec1743ba257c08bf138af6b1320ddc483"
+    },
+    {
+      "bytes": 441798,
+      "path": "data/paper_v2/frozen/formula-sensitive-1.0/pairs.jsonl",
+      "sha256": "54d85ca922c38fe99dac4f8a6dacef2c75baa4aa707922a03077863e202ae54b"
+    },
+    {
+      "bytes": 213216,
+      "path": "data/paper_v2/frozen/formula-sensitive-1.0/prompts.jsonl",
+      "sha256": "e3e751ce9611d7919ce56da3c510f67de685ff952556609d6d556b4d28c83149"
+    },
+    {
+      "bytes": 0,
+      "path": "data/paper_v2/frozen/formula-sensitive-1.0/rejected.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1494,
+      "path": "data/paper_v2/frozen/scaled-0.2/manifest.json",
+      "sha256": "6673c46959aedcbd0214f145fc89715c4c674a0f88c39fbdd791d012d3ccdfba"
+    },
+    {
+      "bytes": 8590125,
+      "path": "data/paper_v2/frozen/scaled-0.2/oracle.jsonl",
+      "sha256": "1f393da26af2c9d8f78aede1cf1291932695c784f3e5dc723899ceaa2eea969c"
+    },
+    {
+      "bytes": 2115190,
+      "path": "data/paper_v2/frozen/scaled-0.2/pairs.jsonl",
+      "sha256": "294ef44358c20f62ccfef256d8b20feb9664af9de785fac1e1793b7011e59061"
+    },
+    {
+      "bytes": 1310,
+      "path": "data/paper_v2/frozen/scaled-0.2/paper_v2.yaml",
+      "sha256": "ac7b703e52772293e93aeac444d2ce05920770919ce592503912959fac87a1de"
+    },
+    {
+      "bytes": 1043146,
+      "path": "data/paper_v2/frozen/scaled-0.2/prompts.jsonl",
+      "sha256": "c70dff85837b9ba1decd92f9d6d8da09207f2d2f49ad97da3562e556a0fb158d"
+    },
+    {
+      "bytes": 108010,
+      "path": "data/paper_v2/frozen/scaled-0.2/rejected.jsonl",
+      "sha256": "dd73299d3a727715fec01c9cdd6caa43aef79081af578f1f146e5db3feb37cab"
+    },
+    {
+      "bytes": 2028,
+      "path": "docs/data_card.md",
+      "sha256": "2070e361b38a9b6c51b2c25349c70f346f820769a80a6211c3f1986e7fff8fff"
+    },
+    {
+      "bytes": 1634,
+      "path": "docs/generation.md",
+      "sha256": "9813d76610372f967d9cf3c11a8a7d521e7bab3d95d5e3b84db6127a3ee3a223"
+    },
+    {
+      "bytes": 809,
+      "path": "docs/oracle_reproduction.md",
+      "sha256": "27761c20dc386f8526bd1ae7f1c6b7ac01ec6b08eb5f6a1638e90f708cb41e23"
+    },
+    {
+      "bytes": 2702,
+      "path": "docs/reproducibility.md",
+      "sha256": "507ed1cb9de88b1b98e0104f06060dd5d598fee746663495a20528f73798e234"
+    },
+    {
+      "bytes": 3629,
+      "path": "docs/semantics.md",
+      "sha256": "c1c0fc425b7c78ae10b055395d490dab6ac2f6cdafa6147bc6cae16edd81f48b"
+    },
+    {
+      "bytes": 156,
+      "path": "paper_v2/__init__.py",
+      "sha256": "ca020e2711b790b02673242037b691b3b91853d99f1c65c002dab5c0b654aa94"
+    },
+    {
+      "bytes": 6985,
+      "path": "paper_v2/affinity.py",
+      "sha256": "38217775f0f4a1045bf4056bd6d089d2c1d71457f1cd4865d9705819609fdacc"
+    },
+    {
+      "bytes": 12039,
+      "path": "paper_v2/candidates.py",
+      "sha256": "cdd9657e33363344772377b675398c5ac4084447aa27d6ef97942da7c30776c0"
+    },
+    {
+      "bytes": 5457,
+      "path": "paper_v2/diagnostics.py",
+      "sha256": "c0e66244b8768eea739c24a7a125a08dc2efadafaa6544f6c269a4d900597d53"
+    },
+    {
+      "bytes": 9848,
+      "path": "paper_v2/evaluate.py",
+      "sha256": "2f60374bc243ed38409ccafa003b8d2e7556906df422e1b63659827094a4931b"
+    },
+    {
+      "bytes": 11841,
+      "path": "paper_v2/final_freeze.py",
+      "sha256": "d6752f77653a0c1f6e660c6e45854d7b4531f68fa647a21f6be3417bf95c831e"
+    },
+    {
+      "bytes": 19741,
+      "path": "paper_v2/formula_sensitive.py",
+      "sha256": "74067e75d6254424afb1c3742368ec641a0665aba2f080eb0d9676a90386d21d"
+    },
+    {
+      "bytes": 9614,
+      "path": "paper_v2/freeze.py",
+      "sha256": "0b9f5cd45d2ea51aa12b295a24fdaaf9d34b086ec504b74a25dedfe0dbeabc1e"
+    },
+    {
+      "bytes": 5848,
+      "path": "paper_v2/grammar.py",
+      "sha256": "01e3034e6a8b0eeabab30fc9344c2aaab4a5eb9736cc2b0620551be21e80637e"
+    },
+    {
+      "bytes": 16047,
+      "path": "paper_v2/implicit_logic.py",
+      "sha256": "4ba26645983eb1567c2464a89148715fdff5214f13b030069eba5c9fa32f1e40"
+    },
+    {
+      "bytes": 5449,
+      "path": "paper_v2/oracle.py",
+      "sha256": "abcaf4d8df46e5c35a40682b6fc264370f92aadb8f2ac64c52c2187df2e37a3e"
+    },
+    {
+      "bytes": 4296,
+      "path": "paper_v2/production.py",
+      "sha256": "a47b5aef3134a8a4fa9e20eca0bc84242063815ba60cc1cf9d9dfecfc470c112"
+    },
+    {
+      "bytes": 2611,
+      "path": "paper_v2/production_results.py",
+      "sha256": "96250631e86301f2909d71c9a6eabf4846c94ec2433033097855ad0bb34417df"
+    },
+    {
+      "bytes": 7298,
+      "path": "paper_v2/reasoning_eval.py",
+      "sha256": "6bb558fa262ed21f7940cc6b17a656a1c5796cc4480031d91409451ea8ac6a1e"
+    },
+    {
+      "bytes": 2202,
+      "path": "paper_v2/render.py",
+      "sha256": "9232d4b62a3972230c776668c9c451a93f370f1abde4caec5f1938c4ec968fad"
+    },
+    {
+      "bytes": 3152,
+      "path": "paper_v2/schema.py",
+      "sha256": "d4f28de8ca025335737c9326972aa0fd156ec7bd58dc5809a76a41b95bee79d9"
+    },
+    {
+      "bytes": 7514,
+      "path": "paper_v2/score.py",
+      "sha256": "e222ba1e7bd53fbe01a9a872b0fadc290a1f7ceb6ed0d1b1729773b93f22b064"
+    },
+    {
+      "bytes": 6115,
+      "path": "paper_v2/semantics.py",
+      "sha256": "bf3ece3ad63a093ccacff8e34a9f7681f6415f928a99484645361ea3745d9f44"
+    },
+    {
+      "bytes": 4026,
+      "path": "paper_v2/smoke.py",
+      "sha256": "5abb69e5ec9c8d09b11aa54f082edc254f10c63c7d06baff4cf307c618eb32ef"
+    },
+    {
+      "bytes": 497,
+      "path": "paper_v2/statistics.py",
+      "sha256": "5ad39d69e7113488a3153e0c99d3b06d6ef4cb5076e6f002bbd3709d1c4ff0cb"
+    },
+    {
+      "bytes": 4581,
+      "path": "paper_v2/subset.py",
+      "sha256": "fe90438bec70bfbcd0cbe882dbdabb5728de5b2bd1fd4428ed7ee6b39b4fac02"
+    },
+    {
+      "bytes": 9949,
+      "path": "paper_v2/terminology.py",
+      "sha256": "412fd0178573c513fc67936caf442280f271d54b31696be1b0996e30c60e06a6"
+    },
+    {
+      "bytes": 541,
+      "path": "pyproject.toml",
+      "sha256": "fe3a5223041d792933013e97d9411725bc7a0b2e9e6747a6d80c424451096ae5"
+    },
+    {
+      "bytes": 1769,
+      "path": "tests/test_paper_v2_affinity.py",
+      "sha256": "594ed51f149f3f0501c2e45daf225e8306b321fac0260c611d29d929b107a50f"
+    },
+    {
+      "bytes": 3500,
+      "path": "tests/test_paper_v2_evaluate.py",
+      "sha256": "2ca3bc63b153f2d869d42101161908ec3bf6692634a40b96daedc835fab1bbdd"
+    },
+    {
+      "bytes": 1668,
+      "path": "tests/test_paper_v2_final_freeze.py",
+      "sha256": "ebfafa4126b4a578b5a2487e85a49ce65af43edcd99e40c4ffcda1922e9bc82d"
+    },
+    {
+      "bytes": 2897,
+      "path": "tests/test_paper_v2_formula_sensitive.py",
+      "sha256": "813158f97b3263a135818a8970867eeb59507171a696f917b5754a515ec7833f"
+    },
+    {
+      "bytes": 1148,
+      "path": "tests/test_paper_v2_freeze.py",
+      "sha256": "53a847d023e709b32ad8573c26da15d35278c36c02342fdbf40e33245cb282e5"
+    },
+    {
+      "bytes": 3230,
+      "path": "tests/test_paper_v2_generation.py",
+      "sha256": "98f9d9b4f410698afe1957be9b94ae6c088893fdb565661e7b2673a7b4cffaf9"
+    },
+    {
+      "bytes": 1037,
+      "path": "tests/test_paper_v2_grammar.py",
+      "sha256": "44b9cd2901bd1324e7a717ab394c32030939d2191c37578dd138773cd80efd32"
+    },
+    {
+      "bytes": 5235,
+      "path": "tests/test_paper_v2_implicit_logic.py",
+      "sha256": "ce079b35f67317457b6d1a83bc8dc52cb5670e9696b759028e5cadfcb9a0be7c"
+    },
+    {
+      "bytes": 2394,
+      "path": "tests/test_paper_v2_production.py",
+      "sha256": "0b5e041d24d05338bec792e8deb47ddc6c334f3abe02bb528ea01823e4b89368"
+    },
+    {
+      "bytes": 1348,
+      "path": "tests/test_paper_v2_reasoning_eval.py",
+      "sha256": "8b0747593e37c779893384a7ccb505a2b6902c229290900cc4e3d7cdc085dc0c"
+    },
+    {
+      "bytes": 1519,
+      "path": "tests/test_paper_v2_schema.py",
+      "sha256": "5941aab45d78203d81d455161d8f7992233ec2752011dabaa14cb130d88dc886"
+    },
+    {
+      "bytes": 3124,
+      "path": "tests/test_paper_v2_score.py",
+      "sha256": "ba2ab134d6e246b35e0be3d654df70061f2f50506fa963f9a24623bb1f4ae604"
+    },
+    {
+      "bytes": 2127,
+      "path": "tests/test_paper_v2_semantics.py",
+      "sha256": "15edceb4922bb3c54592d136a643ca87125591b1f23cbbea65cc0e83055c3240"
+    },
+    {
+      "bytes": 333,
+      "path": "tests/test_paper_v2_smoke.py",
+      "sha256": "9da6eb07ae89e44ed2c794ee6f634392f7785708476a51da84c46837a9faa890"
+    },
+    {
+      "bytes": 935,
+      "path": "tests/test_paper_v2_subset.py",
+      "sha256": "70307f881ed33151e422a92e757e4c27f8f1984a5cd87d899b5d5b5e348bfefa"
+    },
+    {
+      "bytes": 951,
+      "path": "tests/test_paper_v2_terminology.py",
+      "sha256": "eb22a866037e46b832595ba803968d4d508543fc1cad4007fc4a9ce58291cfb7"
+    }
+  ],
+  "source_commit": "93c723f14980beb818af19ffa1d2a00945081b84",
+  "total_bytes": 13551599
+}

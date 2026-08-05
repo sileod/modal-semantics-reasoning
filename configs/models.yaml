@@ -1,0 +1,189 @@
+models:
+  - name: GPT-4.1
+    model: openrouter/openai/gpt-4.1
+    role: strong_proprietary
+    pilot: true
+
+  - name: GPT-4.1 Nano
+    model: openrouter/openai/gpt-4.1-nano
+    role: small_proprietary
+    pilot: true
+
+  - name: DeepSeek V4 Flash
+    model: openrouter/deepseek/deepseek-v4-flash
+    role: open_weight
+    pilot: true
+
+  # Dated production endpoints; prices are a 2026-07-20 planning snapshot.
+  - name: DeepSeek V4 Flash
+    model: openrouter/deepseek/deepseek-v4-flash-20260423
+    role: open_weight
+    production: true
+    pricing_usd_per_million: {input: 0.098, output: 0.196}
+
+  - name: DeepSeek V4 Pro
+    model: openrouter/deepseek/deepseek-v4-pro-20260423
+    role: open_weight
+    production: true
+    pricing_usd_per_million: {input: 0.435, output: 0.87}
+
+  - name: GPT-5.6 Luna
+    model: openrouter/openai/gpt-5.6-luna-20260709
+    role: efficient_proprietary
+    production: true
+    pricing_usd_per_million: {input: 1.0, output: 6.0}
+
+  - name: GPT-5.6 Terra
+    model: openrouter/openai/gpt-5.6-terra-20260709
+    role: strong_proprietary
+    production: true
+    pricing_usd_per_million: {input: 2.5, output: 15.0}
+
+  - name: Claude Sonnet 5
+    model: openrouter/anthropic/claude-sonnet-5-20260630
+    role: strong_proprietary
+    production: true
+    pricing_usd_per_million: {input: 2.0, output: 10.0}
+
+evaluation_profiles:
+  instant:
+    temperature: 0
+    max_tokens: 512
+    batch_size: 32
+    max_concurrency: 16
+    reasoning:
+      enabled: false
+    responses_per_side: 1
+    timeout_seconds: 60
+
+  direct: &direct
+    temperature: 0
+    max_tokens: 8
+    batch_size: 32
+    max_concurrency: 16
+    reasoning:
+      effort: none
+    responses_per_side: 1
+    timeout_seconds: 60
+
+  direct_production:
+    temperature: 0
+    max_tokens: 64
+    batch_size: 32
+    max_concurrency: 16
+    reasoning:
+      effort: none
+    responses_per_side: 1
+    timeout_seconds: 60
+
+  # Formula-sensitive rerun: enough room for models that internally deliberate
+  # even when the requested surface answer is binary.
+  direct_production_512:
+    temperature: 0
+    max_tokens: 512
+    batch_size: 32
+    max_concurrency: 16
+    reasoning:
+      effort: none
+    responses_per_side: 1
+    timeout_seconds: 120
+
+  rationale:
+    temperature: 0
+    max_tokens: 512
+    batch_size: 16
+    max_concurrency: 16
+    reasoning:
+      effort: none
+    responses_per_side: 1
+    timeout_seconds: 120
+
+  reasoning_high:
+    temperature: 0
+    max_tokens: 2048
+    batch_size: 16
+    max_concurrency: 16
+    reasoning:
+      effort: high
+    responses_per_side: 1
+    timeout_seconds: 120
+
+  reasoning_medium:
+    temperature: 0
+    max_tokens: 2048
+    batch_size: 16
+    max_concurrency: 16
+    reasoning:
+      effort: medium
+    responses_per_side: 1
+    timeout_seconds: 180
+
+  reasoning_high_production:
+    temperature: 0
+    max_tokens: 4096
+    batch_size: 16
+    max_concurrency: 16
+    reasoning:
+      effort: high
+    responses_per_side: 1
+    timeout_seconds: 180
+
+  # Same provider condition as reasoning_high_production; only client-side
+  # batching is enlarged for the independent formula-sensitive run.
+  reasoning_high_parallel:
+    temperature: 0
+    max_tokens: 4096
+    batch_size: 64
+    max_concurrency: 64
+    reasoning:
+      effort: high
+    responses_per_side: 1
+    timeout_seconds: 180
+
+  reasoning_high_8192_parallel:
+    temperature: 0
+    max_tokens: 8192
+    batch_size: 64
+    max_concurrency: 64
+    reasoning:
+      effort: high
+    responses_per_side: 1
+    timeout_seconds: 300
+
+# Backward-compatible alias for the frozen direct-answer runs.
+evaluation: *direct
+
+production_runs:
+  production-1.1:
+    pairs: data/paper_v2/frozen/scaled-0.2/pairs.jsonl
+    prompts: data/paper_v2/derived/scaled-0.2/production-1.0
+    affinity_prompts: data/paper_v2/derived/scaled-0.2/production-1.0-affinity/prompts.jsonl
+    cells:
+      - model: openrouter/deepseek/deepseek-v4-flash-20260423
+        stem: deepseek-v4-flash__direct_production
+        profile: direct_production
+        scope: primary_and_affinity
+      - model: openrouter/deepseek/deepseek-v4-flash-20260423
+        stem: deepseek-v4-flash__reasoning-high
+        profile: reasoning_high_production
+        scope: frame
+      - model: openrouter/deepseek/deepseek-v4-pro-20260423
+        stem: deepseek-v4-pro__direct_production
+        profile: direct_production
+        scope: primary_and_affinity
+      - model: openrouter/openai/gpt-5.6-luna-20260709
+        stem: gpt-5.6-luna__direct_production
+        profile: direct_production
+        scope: primary_and_affinity
+      - model: openrouter/openai/gpt-5.6-luna-20260709
+        stem: gpt-5.6-luna__reasoning-medium
+        profile: reasoning_medium
+        scope: frame
+      - model: openrouter/openai/gpt-5.6-terra-20260709
+        stem: gpt-5.6-terra__direct_production
+        profile: direct_production
+        scope: primary_and_affinity
+      - model: openrouter/anthropic/claude-sonnet-5-20260630
+        stem: claude-sonnet-5__instant
+        profile: instant
+        scope: primary_and_affinity

@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this benchmark, please cite the accompanying paper."
+title: "Same Formulas, Different Semantics: Do Language Models Follow Modal Logic Specifications?"
+type: software
+authors:
+  - family-names: Andrieu
+    given-names: Rémi
+  - family-names: Sileo
+    given-names: Damien
+    email: damien.sileo@inria.fr
+repository-code: "https://github.com/sileod/modal-semantics-reasoning"
+url: "https://huggingface.co/datasets/sileod/modal-semantics-reasoning"
+
