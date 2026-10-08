@@ -45,6 +45,31 @@ models:
     production: true
     pricing_usd_per_million: {input: 2.0, output: 10.0}
 
+  # Added 2026-10-08; dated OpenRouter endpoints.
+  - name: GPT-6 Luna
+    model: openrouter/openai/gpt-6-luna-20260922
+    role: efficient_proprietary
+    production: true
+    pricing_usd_per_million: {input: 0.1, output: 0.5}
+
+  - name: Claude Haiku 5.5
+    model: openrouter/anthropic/claude-haiku-5.5-20261007
+    role: efficient_proprietary
+    production: true
+    pricing_usd_per_million: {input: 0.1, output: 0.5}
+
+  - name: Claude Sonnet 5.5
+    model: openrouter/anthropic/claude-sonnet-5.5-20260928
+    role: strong_proprietary
+    production: true
+    pricing_usd_per_million: {input: 2.0, output: 10.0}
+
+  - name: Mistral Large 4
+    model: openrouter/mistralai/mistral-large-4-0-20261006
+    role: open_weight
+    production: true
+    pricing_usd_per_million: {input: 0.68, output: 2.09}
+
 evaluation_profiles:
   instant:
     temperature: 0
@@ -118,6 +143,27 @@ evaluation_profiles:
     responses_per_side: 1
     timeout_seconds: 180
 
+  # Medium reasoning with room for long traces (some models use 2-4k tokens per item).
+  reasoning_medium_8192_parallel:
+    temperature: 0
+    max_tokens: 8192
+    batch_size: 64
+    max_concurrency: 64
+    reasoning:
+      effort: medium
+    responses_per_side: 1
+    timeout_seconds: 300
+
+  reasoning_medium_16384_parallel:
+    temperature: 0
+    max_tokens: 16384
+    batch_size: 64
+    max_concurrency: 64
+    reasoning:
+      effort: medium
+    responses_per_side: 1
+    timeout_seconds: 600
+
   reasoning_high_production:
     temperature: 0
     max_tokens: 4096
@@ -143,6 +189,36 @@ evaluation_profiles:
   reasoning_high_8192_parallel:
     temperature: 0
     max_tokens: 8192
+    batch_size: 64
+    max_concurrency: 64
+    reasoning:
+      effort: high
+    responses_per_side: 1
+    timeout_seconds: 300
+
+  reasoning_high_1024_parallel:
+    temperature: 0
+    max_tokens: 1024
+    batch_size: 64
+    max_concurrency: 64
+    reasoning:
+      effort: high
+    responses_per_side: 1
+    timeout_seconds: 300
+
+  reasoning_high_2048_parallel:
+    temperature: 0
+    max_tokens: 2048
+    batch_size: 64
+    max_concurrency: 64
+    reasoning:
+      effort: high
+    responses_per_side: 1
+    timeout_seconds: 300
+
+  reasoning_high_4096_parallel:
+    temperature: 0
+    max_tokens: 4096
     batch_size: 64
     max_concurrency: 64
     reasoning:

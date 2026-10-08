@@ -11,9 +11,9 @@
       "sha256": "689ed42a8a467d6c8eca4be1571775733e8d5fb0e0bc3937a1721ae3bc7da3de"
     },
     {
-      "bytes": 490,
+      "bytes": 474,
       "path": "CITATION.cff",
-      "sha256": "aa1656506c6dbd60e572029267dedebd5a075efd2af92c60f57f5e612f8683c9"
+      "sha256": "bb8e5e12b4d2661824dd273da9490261a3181d19569536de9caf2813c3f8fd70"
     },
     {
       "bytes": 86,
@@ -21,19 +21,44 @@
       "sha256": "ee13024b67a74fbb2c286ce558787a63ea7921b11c95905d385a4f480ee8ec86"
     },
     {
-      "bytes": 2189,
+      "bytes": 2428,
       "path": "README.md",
-      "sha256": "c4d68925927d3e20a1fc17c1ed4e033856d53745c15154269bbfd98b31936324"
+      "sha256": "f0700b321483c8e9e8ca9b95bd84cf9d332fbcba354858c6b554315dc8ecfc97"
     },
     {
-      "bytes": 5072,
+      "bytes": 6977,
       "path": "configs/models.yaml",
-      "sha256": "966725cfcd7281d12c5877526e33d733cd4a26400f415df123bb25638d136a1a"
+      "sha256": "2249b63fb77f0a89567e7efe95e3fb4e51999207ee95ea530a988bcd669c3977"
     },
     {
       "bytes": 1310,
       "path": "configs/paper_v2.yaml",
       "sha256": "ac7b703e52772293e93aeac444d2ce05920770919ce592503912959fac87a1de"
+    },
+    {
+      "bytes": 656,
+      "path": "data/paper_v2/frozen/diamond-1.0/manifest.json",
+      "sha256": "f136dca428163ce2dbab73b6ff45b71bece5ab5c22cb584638dc1f71b9d0a94b"
+    },
+    {
+      "bytes": 852294,
+      "path": "data/paper_v2/frozen/diamond-1.0/oracle.jsonl",
+      "sha256": "3413ee1d539769b87bb4c54eb5d35a045ffe80b9fe543e791187728935280869"
+    },
+    {
+      "bytes": 533932,
+      "path": "data/paper_v2/frozen/diamond-1.0/pairs.jsonl",
+      "sha256": "b4270df6b7adbeb067a09a66d51df4cd7766f1afbd8677f6ccb5e92332aed03f"
+    },
+    {
+      "bytes": 261668,
+      "path": "data/paper_v2/frozen/diamond-1.0/prompts.jsonl",
+      "sha256": "c0d5ec8d06d1b3d5119fd028e26459b4bc9a85fd745bf441c9636724c0beedb3"
+    },
+    {
+      "bytes": 698,
+      "path": "data/paper_v2/frozen/diamond-1.0/rejected.jsonl",
+      "sha256": "d9d26c8d14e7aceff7668ab78672afd54a890d634e19b972dd0524aaf23e24f0"
     },
     {
       "bytes": 1149,
@@ -136,6 +161,11 @@
       "sha256": "c0e66244b8768eea739c24a7a125a08dc2efadafaa6544f6c269a4d900597d53"
     },
     {
+      "bytes": 18884,
+      "path": "paper_v2/diamond.py",
+      "sha256": "31336b4daae85e78e1bc281d76db84d650212479dfa4382add47af4d81330fbf"
+    },
+    {
       "bytes": 9848,
       "path": "paper_v2/evaluate.py",
       "sha256": "2f60374bc243ed38409ccafa003b8d2e7556906df422e1b63659827094a4931b"
@@ -164,6 +194,11 @@
       "bytes": 16047,
       "path": "paper_v2/implicit_logic.py",
       "sha256": "4ba26645983eb1567c2464a89148715fdff5214f13b030069eba5c9fa32f1e40"
+    },
+    {
+      "bytes": 6911,
+      "path": "paper_v2/kripke.py",
+      "sha256": "344d74d9187474d00ddfe8724856316dd2f2195a9b2f17000dd4eedd9c742f8b"
     },
     {
       "bytes": 5449,
@@ -234,6 +269,11 @@
       "bytes": 1769,
       "path": "tests/test_paper_v2_affinity.py",
       "sha256": "594ed51f149f3f0501c2e45daf225e8306b321fac0260c611d29d929b107a50f"
+    },
+    {
+      "bytes": 2519,
+      "path": "tests/test_paper_v2_diamond.py",
+      "sha256": "a1000159682e45c42bd369b0799e7492eb508d9a3fb3aa517dbd18ccf1c596ba"
     },
     {
       "bytes": 3500,
@@ -311,6 +351,6 @@
       "sha256": "eb22a866037e46b832595ba803968d4d508543fc1cad4007fc4a9ce58291cfb7"
     }
   ],
-  "source_commit": "c7b0344eafcf5913ce8ea0c07285a309bc6d4ce3",
-  "total_bytes": 13551598
+  "source_commit": "f55323ff09fa612651f4daf4455d11b679f40a63",
+  "total_bytes": 15231288
 }

@@ -13,15 +13,16 @@ changes with it. Labels are checked with automated theorem provers.
 |---|---:|---|
 | Balanced core | 160 | Conditions are balanced across labels, preventing a condition-only shortcut. |
 | Broad nested set | 800 | Five frame contrasts and three domain contrasts. |
+| Diamond | 160 | Harder balanced set: modal depth 3–4 (frame) or two nested quantifiers (domain). |
 
 The complete dataset, prompts, prover records, model responses, and scores are
-available on [Hugging Face](https://huggingface.co/datasets/sileod/modal-semantics-reasoning).
+available on Hugging Face as [ModalFlip](https://huggingface.co/datasets/sileod/ModalFlip).
 
 ```python
 from datasets import load_dataset
 
 data = load_dataset(
-    "sileod/modal-semantics-reasoning",
+    "sileod/ModalFlip",
     "balanced_core",
     split="train",
 )
@@ -48,6 +49,12 @@ python -m paper_v2.score \
   --prompts data/paper_v2/frozen/formula-sensitive-1.0/prompts.jsonl \
   --raw responses.jsonl \
   --out scores.json
+```
+
+Rebuild the diamond set (needs the provers; deterministic given the seed):
+
+```bash
+python -m paper_v2.diamond --out data/paper_v2/frozen/diamond-1.0
 ```
 
 Generate a small sample:

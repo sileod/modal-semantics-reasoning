@@ -9,5 +9,5 @@ authors:
     given-names: Damien
     email: damien.sileo@inria.fr
 repository-code: "https://github.com/sileod/modal-semantics-reasoning"
-url: "https://huggingface.co/datasets/sileod/modal-semantics-reasoning"
+url: "https://huggingface.co/datasets/sileod/ModalFlip"
 

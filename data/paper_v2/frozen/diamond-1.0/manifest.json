@@ -1,0 +1,33 @@
+{
+  "benchmark": "paper-v2-diamond",
+  "by_axis": {
+    "domain": 80,
+    "frame": 80
+  },
+  "by_mode": {
+    "nli": 80,
+    "validity": 80
+  },
+  "by_orientation": {
+    "B": 40,
+    "S4": 40,
+    "cumulative": 40,
+    "decreasing": 40
+  },
+  "git_commit": "d71af363b2b988d647ea8439d3f81d4d7eaa19ec",
+  "modal_depth": {
+    "2": 48,
+    "3": 112
+  },
+  "pairs": 160,
+  "pairs_per_cell": 20,
+  "python": "3.12.9",
+  "quantifier_depth": {
+    "0": 80,
+    "2": 80
+  },
+  "rejected_after_screening": 2,
+  "seed": 20261008,
+  "selection": "seeded generator, lowest SHA-256(TPTP) first per axis/mode cell, first per_cell per orientation",
+  "version": "1.0"
+}
