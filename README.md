@@ -7,6 +7,8 @@ Each benchmark item pairs the same premises and conclusion with two semantic
 specifications. One frame or domain condition changes, and the correct answer
 changes with it. Labels are checked with automated theorem provers.
 
+Paper: [*Same Formulas, Different Semantics: Do Language Models Follow Modal Logic Specifications?*](https://arxiv.org/abs/2608.05097) (Andrieu and Sileo, 2026).
+
 ## Dataset
 
 | Subset | Pairs | Description |
@@ -83,5 +85,17 @@ scope.
 
 ## Citation
 
-Citation metadata is provided in [`CITATION.cff`](CITATION.cff).
+If you use this benchmark, please cite the paper:
+
+```bibtex
+@article{andrieu2026sameformulas,
+  title   = {Same Formulas, Different Semantics: Do Language Models Follow Modal Logic Specifications?},
+  author  = {Andrieu, R{\'e}mi and Sileo, Damien},
+  journal = {arXiv preprint arXiv:2608.05097},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2608.05097}
+}
+```
+
+Citation metadata is also provided in [`CITATION.cff`](CITATION.cff).
 

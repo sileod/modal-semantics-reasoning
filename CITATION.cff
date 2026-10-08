@@ -10,4 +10,19 @@ authors:
     email: damien.sileo@inria.fr
 repository-code: "https://github.com/sileod/modal-semantics-reasoning"
 url: "https://huggingface.co/datasets/sileod/ModalFlip"
-
+identifiers:
+  - type: doi
+    value: "10.48550/arXiv.2608.05097"
+    description: "arXiv preprint"
+preferred-citation:
+  type: article
+  title: "Same Formulas, Different Semantics: Do Language Models Follow Modal Logic Specifications?"
+  authors:
+    - family-names: Andrieu
+      given-names: Rémi
+    - family-names: Sileo
+      given-names: Damien
+  journal: "arXiv preprint"
+  year: 2026
+  doi: "10.48550/arXiv.2608.05097"
+  url: "https://arxiv.org/abs/2608.05097"
