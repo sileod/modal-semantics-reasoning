@@ -25,6 +25,26 @@ def parse_answer(text: str | None) -> tuple[bool | None, str]:
     return match.group(1).upper() == "YES", "ok"
 
 
+def parse_lenient(text: str | None) -> tuple[bool | None, str]:
+    """Used for the post-paper model comparisons. Paper parser, after stripping markdown; else a bare Yes/No (or "Answer: Yes") on the last or first line,
+    or a final LaTeX \\boxed{Yes}/\\boxed{\\text{No}}."""
+    if text is None:
+        return None, "missing"
+    boxed = re.findall(r"\\boxed\{\s*(?:\\text(?:bf)?\{)?\s*(yes|no)\s*\}?\s*\}", text, re.IGNORECASE)
+    if boxed:
+        return boxed[-1].lower() == "yes", "ok"
+    clean = re.sub(r"[*_`#]", "", text).strip()
+    parsed, status = parse_answer(clean)
+    if status == "ok":
+        return parsed, status
+    lines = [line.strip() for line in clean.splitlines() if line.strip()]
+    for line in (lines[-1], lines[0]) if lines else ():
+        match = re.fullmatch(r"(?:final answer|answer)?\s*:?\s*(yes|no)[.!]?", line, re.IGNORECASE)
+        if match:
+            return match.group(1).lower() == "yes", "ok"
+    return None, "malformed"
+
+
 def evaluate_model(
     model: dict[str, Any],
     prompts_path: str | Path,
@@ -76,6 +96,12 @@ def evaluate_model(
         responses = complete([prompt["prompt"] for prompt in batch], **request)
         if len(responses) != len(batch):
             raise RuntimeError("provider response count does not match request batch")
+        failures = [response for response in responses if not _has_choices(response)]
+        if failures:
+            raise RuntimeError(
+                f"provider returned {len(failures)} failed responses; "
+                "no records from this batch were stored"
+            )
         batch_latency = time.perf_counter() - started
         batch_records = [
             _response_record(
@@ -199,6 +225,12 @@ def _content(response: Any) -> str:
     if isinstance(response, dict):
         return response.get("choices", [{}])[0].get("message", {}).get("content", "")
     return response.choices[0].message.content or ""
+
+
+def _has_choices(response: Any) -> bool:
+    if isinstance(response, dict):
+        return bool(response.get("choices"))
+    return bool(getattr(response, "choices", None))
 
 
 def _field(response: Any, name: str) -> Any:

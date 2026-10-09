@@ -6,7 +6,7 @@ import random
 from pathlib import Path
 from typing import Any, Callable
 
-from .evaluate import parse_answer
+from .evaluate import parse_answer, parse_lenient
 from .statistics import wilson_interval
 
 
@@ -14,6 +14,7 @@ def score(
     pairs_path: str | Path,
     prompts_path: str | Path,
     raw_path: str | Path,
+    parse: Callable[[str | None], tuple[bool | None, str]] = parse_answer,
 ) -> dict[str, Any]:
     all_pairs = {row["pair_id"]: row for row in _read_jsonl(pairs_path)}
     prompts = {(row["pair_id"], row["side"]): row for row in _read_jsonl(prompts_path)}
@@ -39,7 +40,7 @@ def score(
         pair = pairs[response["pair_id"]]
         gold = pair[f"label_{response['side']}"]
         if "raw_response" in response:
-            parsed_answer, parse_status = parse_answer(response["raw_response"])
+            parsed_answer, parse_status = parse(response["raw_response"])
         else:
             parsed_answer = response.get("parsed_answer")
             parse_status = response.get("parse_status", "missing")
@@ -186,8 +187,12 @@ def main() -> None:
         "--prompts", default="data/paper_v2/frozen/pilot-0.2/prompts.jsonl"
     )
     parser.add_argument("--out")
+    parser.add_argument(
+        "--lenient", action="store_true",
+        help="accept markdown, a Yes/No on the first or last line, or \\boxed{Yes/No} (paper parser otherwise)",
+    )
     args = parser.parse_args()
-    result = score(args.pairs, args.prompts, args.raw)
+    result = score(args.pairs, args.prompts, args.raw, parse=parse_lenient if args.lenient else parse_answer)
     output = Path(
         args.out or args.raw.replace("/raw/", "/scored/").replace(".jsonl", ".json")
     )

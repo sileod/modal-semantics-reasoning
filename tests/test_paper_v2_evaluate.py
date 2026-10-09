@@ -2,7 +2,13 @@ import json
 
 import pytest
 
-from paper_v2.evaluate import _finish_reason, _read_partial, evaluate_model, parse_answer
+from paper_v2.evaluate import (
+    _finish_reason,
+    _has_choices,
+    _read_partial,
+    evaluate_model,
+    parse_answer,
+)
 
 
 @pytest.mark.parametrize(
@@ -22,6 +28,15 @@ def test_parse_answer_rejects_malformed_or_missing(text):
 
 def test_finish_reason_supports_provider_dicts():
     assert _finish_reason({"choices": [{"finish_reason": "length"}]}) == "length"
+
+
+def test_provider_failure_has_no_choices():
+    class Failure:
+        pass
+
+    assert not _has_choices(Failure())
+    assert not _has_choices({"error": "rate limit"})
+    assert _has_choices({"choices": [{"message": {"content": "Yes"}}]})
 
 
 def test_partial_records_are_validated_and_resumed(tmp_path):
@@ -118,3 +133,14 @@ def test_limit_selects_deterministic_prompt_prefix(tmp_path, monkeypatch):
     )
 
     assert batches == [["0", "1"]]
+
+
+def test_parse_lenient_accepts_formatted_answers_only():
+    from paper_v2.evaluate import parse_lenient
+
+    assert parse_lenient("**Yes**") == (True, "ok")
+    assert parse_lenient("No\n\nBecause the frame is symmetric.") == (False, "ok")
+    assert parse_lenient("Working...\nAnswer: yes") == (True, "ok")
+    assert parse_lenient(r"So the implication fails. \boxed{\text{No}}") == (False, "ok")
+    assert parse_lenient("The implication fails at w.") == (None, "malformed")
+    assert parse_lenient(None) == (None, "missing")

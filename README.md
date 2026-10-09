@@ -53,6 +53,24 @@ python -m paper_v2.score \
   --out scores.json
 ```
 
+Evaluate a model through OpenRouter, then score it. Models and request
+profiles are listed in `configs/models.yaml`; add an entry there for a new model.
+
+```bash
+export OPENROUTER_API_KEY=...
+SET=data/paper_v2/frozen/diamond-1.0          # or formula-sensitive-1.0 (balanced core)
+python -m paper_v2.evaluate --model openrouter/openai/gpt-6-luna-20260922 \
+  --prompts $SET/prompts.jsonl --profile reasoning_medium_8192_parallel \
+  --max-cost-usd 1 --out luna.jsonl
+python -m paper_v2.score --lenient --pairs $SET/pairs.jsonl \
+  --prompts $SET/prompts.jsonl --raw luna.jsonl --out luna.json
+```
+
+`--lenient` accepts answers in markdown, a Yes/No on the first or last line, or
+`\boxed{Yes}`, as in the post-paper model comparisons on the dataset card.
+Without it, scoring uses the paper's strict parser. A diamond run costs about
+$0.10 for GPT-6 Luna and $2–3.50 for Claude Sonnet 5.5 or Mistral Large 4.
+
 Rebuild the diamond set (needs the provers; deterministic given the seed):
 
 ```bash
